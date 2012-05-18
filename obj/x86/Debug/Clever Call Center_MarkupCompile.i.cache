@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Projects\Git\Clever-Call-Center\obj\x86\Debug\
+C:\Users\Grzegorz\Clever-Call-Center\obj\x86\Debug\
 Clever_Call_Center
 none
 false
 DEBUG;TRACE
-D:\Projects\Git\Clever-Call-Center\App.xaml
-11151548125
+C:\Users\Grzegorz\Clever-Call-Center\App.xaml
+5694684284
 
-6-1319303310
-12-1381780322
-MainWindow.xaml;
+29947061841
+131287280978
+MainWindow.xaml;View\Campaign\CampaignListView.xaml;View\Campaign\CampaignView.xaml;View\User\UserListView.xaml;View\User\UserView.xaml;
 
-False
+True
 

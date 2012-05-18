@@ -1,0 +1,84 @@
+﻿<Window x:Class="Clever_Call_Center.View.CampaignView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="400" Width="380"
+        Title="Campaign" WindowStyle="None" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Width" Value="140" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="175"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="80"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="CornerRadius" Value="1"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Background" Value="Snow"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="175"/>
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="LightGray" CornerRadius="3" BorderThickness="2">
+        <StackPanel x:Name="_stackpanelUserView" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Border>
+                <StackPanel>
+                    <Label Content="Nazwa :" />
+                    <TextBox x:Name="_textboxName" 
+                                 Text="{Binding Path = Name, Mode=TwoWay}"/>
+                </StackPanel>
+            </Border>
+
+            <Border>
+                <StackPanel>
+                    <Label Content="Start :" />
+                    <TextBox x:Name="_textboxCampaignStartDate" 
+                                 Text="{Binding Path = CampaignStartDate, Mode=TwoWay, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                </StackPanel>
+            </Border>
+            <Border>
+                <StackPanel>
+                    <Label Content="Koniec :" />
+                    <TextBox x:Name="_textboxCampaignEndDate" 
+                                 Text="{Binding Path = CampaignEndDate, Mode=TwoWay, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                </StackPanel>
+            </Border>
+            <Border>
+                <StackPanel>
+                    <Label Content="Status :"/>
+                    <ComboBox x:Name="_comboboxStatus" />
+                </StackPanel>
+            </Border>
+            <Border>
+                <StackPanel>
+                    <Label Content="Opis :" />
+                    <TextBox x:Name="_textboxDescription" 
+                                 VerticalContentAlignment="Top"
+                                 Height="80" AcceptsReturn="True" TextWrapping="Wrap"
+                                 Text="{Binding Path = Description, Mode=TwoWay}"/>
+                </StackPanel>
+            </Border>
+            <StackPanel Margin="0 20 0 0" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button x:Name="_buttonCancel" 
+                            Content="Anuluj" Click="_buttonCancel_Click"  Margin="0 0 5 5"/>
+                <Button x:Name="_buttonSave"
+                            Content="Zapisz" Click="_buttonSave_Click" Margin="5 0 0 5"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

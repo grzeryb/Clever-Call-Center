@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Clever_Call_Center.View.UserListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1000">
+    <StackPanel>
+        <StackPanel x:Name="_stackpanelUsers"
+                    Style="{StaticResource ResourceKey=style_StackPanel_HorizontalTop}"   
+                    Height="50"
+                    Grid.Column="1" Grid.Row="2">
+            <Button x:Name="_buttonAddUser" 
+                    Content="Dodaj" Click="_buttonAddUser_Click"
+                    Style="{StaticResource ResourceKey=style_Button}"/>
+            <Button x:Name="_buttonEditUser" 
+                    IsEnabled="False"
+                    Content="Edytuj" Click="_buttonEditUser_Click"
+                    Style="{StaticResource ResourceKey=style_Button}"/>
+        </StackPanel>
+        <ListView x:Name="_listviewUser"
+                  SelectionChanged="_listviewUser_SelectionChanged"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                  Height="400" Margin="10" Padding="2" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Login" Width="100" DisplayMemberBinding="{Binding Path = User.Login}"/>
+                    <GridViewColumn Header="Imie" Width="100" DisplayMemberBinding="{Binding Path = User.FirstName}"/>
+                    <GridViewColumn Header="Nazwisko" Width="100" DisplayMemberBinding="{Binding Path = User.LastName}"/>
+                    <GridViewColumn Header="Opis" Width="100" DisplayMemberBinding="{Binding Path = User.Note}"/>
+                    <GridViewColumn Header="Data kreacji" Width="100" DisplayMemberBinding="{Binding Path = User.TimeOfCreation, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Data modyfikacji" Width="100" DisplayMemberBinding="{Binding Path = User.TimeOfModification, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Rola" Width="100" DisplayMemberBinding="{Binding Path = Role.Name}"/>
+                    <GridViewColumn Header="Data modyfikacji" Width="100" DisplayMemberBinding="{Binding Path =  Role.TimeOfCreation, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Data kreacji" Width="100" DisplayMemberBinding="{Binding Path =  Role.TimeOfModification, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Aktywny" Width="60" DisplayMemberBinding="{Binding Path = User.Active, Converter={StaticResource ResourceKey=_activeConverter}}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</UserControl>

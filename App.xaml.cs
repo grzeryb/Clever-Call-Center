@@ -12,5 +12,6 @@ namespace Clever_Call_Center
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

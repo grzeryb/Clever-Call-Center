@@ -1,8 +1,30 @@
 ﻿<Window x:Class="Clever_Call_Center.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Clever Call Center" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+        WindowStyle="ToolWindow" WindowState="Maximized"
+        Height="768" Width="1366">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1024"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="_tabcontrol" Grid.Column="1" Grid.Row="3">
+            <TabItem x:Name="_tabitemCampaigns" Header="Kampanie">
+                <ContentControl x:Name="_contentcontrolCampaigns"/>
+            </TabItem>
+            <TabItem x:Name="_tabitemUsers" Header="Użytkownicy">
+                <ContentControl x:Name="_contentcontrolUsers"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

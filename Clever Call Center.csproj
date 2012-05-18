@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +56,37 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CleverCallCenter.cs" />
+    <Compile Include="Converter\ActiveConverter.cs" />
+    <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Model\CampaignUserPrivate.cs" />
+    <Compile Include="Model\CampaignUserPublic.cs" />
+    <Compile Include="Model\Campaign\CampaignPrivate.cs" />
+    <Compile Include="Model\Campaign\CampaignPublic.cs" />
+    <Compile Include="Model\CoordinatorToCampaignPrivate.cs" />
+    <Compile Include="Model\CoordinatorToCampaignPublic.cs" />
+    <Compile Include="Model\RecordGroupPrivate.cs" />
+    <Compile Include="Model\RecordGroupPublic.cs" />
+    <Compile Include="Model\RecordPrivate.cs" />
+    <Compile Include="Model\RecordPublic.cs" />
+    <Compile Include="Model\Role\RolePrivate.cs" />
+    <Compile Include="Model\Role\RolePublic.cs" />
+    <Compile Include="Model\UserInRole\UserInRolePrivate.cs" />
+    <Compile Include="Model\UserInRole\UserInRolePublic.cs" />
+    <Compile Include="Model\User\UserPrivate.cs" />
+    <Compile Include="Model\User\UserPublic.cs" />
+    <Compile Include="View\Campaign\CampaignListView.xaml.cs">
+      <DependentUpon>CampaignListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Campaign\CampaignView.xaml.cs">
+      <DependentUpon>CampaignView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +99,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Campaign\CampaignListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Campaign\CampaignView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -92,6 +140,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

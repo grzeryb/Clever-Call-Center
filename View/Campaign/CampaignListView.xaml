@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Clever_Call_Center.View.CampaignListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="520" d:DesignWidth="1000">
+    <StackPanel>
+        <StackPanel x:Name="_stackpanelCampaigns"
+                    Style="{StaticResource ResourceKey=style_StackPanel_HorizontalTop}"   
+                    Height="50"
+                    Grid.Column="1" Grid.Row="2">
+            <Button x:Name="_buttonAddCampaign" 
+                    Content="Dodaj" Click="_buttonAddCampaign_Click"
+                    Style="{StaticResource ResourceKey=style_Button}"/>
+            <Button x:Name="_buttonEditCampaign" 
+                    IsEnabled="False"
+                    Content="Edytuj" Click="_buttonEditCampaign_Click"
+                    Style="{StaticResource ResourceKey=style_Button}"/>
+        </StackPanel>
+        <ListView x:Name="_listviewCampaign" 
+                  SelectionChanged="_listviewCampaign_SelectionChanged"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+                  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                  Height="400" Margin="10" Padding="2" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nazwa" Width="80" DisplayMemberBinding="{Binding Path = Name}"/>
+                    <GridViewColumn Header="Opis" Width="80" DisplayMemberBinding="{Binding Path = Description}"/>
+                    <GridViewColumn Header="Data kreacji" Width="80" DisplayMemberBinding="{Binding Path = TimeOfCreation, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Data modyfikacji" Width="120" DisplayMemberBinding="{Binding Path = TimeOfModification, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Data rozpoczecia kampanii" Width="120" DisplayMemberBinding="{Binding Path = CampaignStartDate, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Data zakonczenia kampanii" Width="120" DisplayMemberBinding="{Binding Path = CampaignEndDate, Converter={StaticResource ResourceKey=_datetimeConverter}}"/>
+                    <GridViewColumn Header="Status" Width="100" DisplayMemberBinding="{Binding Path = Status}"/>
+                    <GridViewColumn Header="Imie" Width="100" DisplayMemberBinding="{Binding Path =  User.FirstName}"/>
+                    <GridViewColumn Header="Nazwisko" Width="100" DisplayMemberBinding="{Binding Path = User.LastName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</UserControl>

@@ -11,17 +11,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Clever_Call_Center.View;
 
 namespace Clever_Call_Center
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            _contentcontrolUsers.Content = new UserListView();
+            _contentcontrolCampaigns.Content = new CampaignListView();
         }
     }
 }
